@@ -4,14 +4,14 @@ const NavBar = () => {
     return (
         <nav className="nav">
             <div className="nav__wrapper">
-                <Link href="">
+                <Link href="./">
                     <a className="a montserrat">
                         <div className="nav__link">
                             <p className="link">Interpolasi Linier</p>
                         </div>
                     </a>
                 </Link>
-                <Link href="">
+                <Link href="./interpolasilagrange">
                     <a className="a montserrat">
                         <div className="nav__link">
                             <p>Interpolasi Lagrange</p>

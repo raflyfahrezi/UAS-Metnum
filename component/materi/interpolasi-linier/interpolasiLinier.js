@@ -87,12 +87,12 @@ const interpolasiLinier = () => {
                             </div>
                         ) : (
                             <div>
-                                {result.map((item, index) => (
+                                { result.map((item, index) => (
                                     <div className="card__result" key={ index }>
                                         <p className="montserrat">Untuk x = { x[index] }</p>
                                         <InterpolasiResult x1y1={ x1y1 } x2y2={ x2y2 } x={ x[index] } result={ item }/>
                                     </div>
-                                ))}
+                                )) }
                             </div>
                         ) 
                     }
