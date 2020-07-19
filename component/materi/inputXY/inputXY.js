@@ -3,11 +3,11 @@ const InputXY = props => {
         <div className="inputXY">
             <div className="inputXY__xy">
                 <p className="montserrat">x{ props.number } : </p>
-                <input type="text" className="inputXY__input montserrat" id={ "x" + props.number }></input>
+                <input type="text" className="inputXY__input montserrat" autoComplete="off" id={ "x" + props.number }></input>
             </div>
             <div className="inputXY__xy">
                 <p className="montserrat">y{ props.number } : </p>
-                <input type="text" className="inputXY__input montserrat" id={ "y" + props.number }></input>
+                <input type="text" className="inputXY__input montserrat" autoComplete="off" id={ "y" + props.number }></input>
             </div>
             <style jsx>
                 {
