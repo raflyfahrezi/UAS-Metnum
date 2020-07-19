@@ -1,10 +1,13 @@
+import Navbar from '../component/navbar/navbar'
 import Header from '../component/header/header'
 import InterpolasiLinier from '../component/materi/interpolasi-linier/interpolasiLinier'
 import Head from '../component/head/head'
+import NavBar from '../component/navbar/navbar'
 
 const Index = () => {
     return (
         <div>
+            <NavBar/>
             <Head title="Interpolasi Linier"/>
             <Header title="Interpolasi Linier"/>
             <InterpolasiLinier/>
