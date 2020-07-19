@@ -1,9 +1,11 @@
 import Header from '../component/header/header'
 import InterpolasiLinier from '../component/materi/interpolasi-linier/interpolasiLinier'
+import Head from '../component/head/head'
 
 const Index = () => {
     return (
         <div>
+            <Head title="Interpolasi Linier"/>
             <Header title="Interpolasi Linier"/>
             <InterpolasiLinier/>
             <style jsx global>
