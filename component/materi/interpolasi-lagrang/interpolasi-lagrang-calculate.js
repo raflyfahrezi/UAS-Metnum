@@ -46,10 +46,8 @@ const InterpolasiLagrangCalculate = (xyparams, xparams) => {
             total += y[i-1] * hitungAtasBawah(x, untuk_X_Ke, i)
         }
 
-        total = (total.toExponential(3)).toString()
-        total = total.substr(0, total.length - 3)
+        total = (total.toFixed(3)).toString()
         return total
-        // console.log(total)
     }
 }
 

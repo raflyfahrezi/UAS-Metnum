@@ -2,31 +2,46 @@ import React, { useEffect, useState } from 'react'
 
 import InputXY from '../inputXY/inputXY'
 import InterpolasiLagrangCalculate from './interpolasi-lagrang-calculate'
+import InterpolasiLagrangStep from './interpolasi-lagrang-step'
 
 const InterpolasiLagrang = () => {
     const [xNeeded, setXNeeded] = useState([1, 2, 3])
     const [xy, setXY] = useState([])
+    const [forX, setForX] = useState([])
+    const [result, setResult] = useState([])
 
     useEffect(() => {
-        InterpolasiLagrangCalculate(xy, 2)
+        const resultTemp = []
+
+        for (let i = 0; i < forX.length; i++) {
+            resultTemp.push(InterpolasiLagrangCalculate(xy, forX[i]))
+        }
+        
+        setResult(resultTemp)
     }, [xy])
 
     const calculate = () => {
         let xytemp = []
+
+        let temp2 = document.getElementById("inputX").value
+        temp2 = temp2.split(" ")
 
         for (let i = 1; i <= xNeeded.length; i++) {
             xytemp.push(document.getElementById("x" + i).value)
             xytemp.push(document.getElementById("y" + i).value)
         }
         
+        setForX(temp2)
         setXY(xytemp)
     }
 
     const updateX = event => {
         const temp = []
+
         for (let i = 1; i <= event.target.value; i++) {
             temp.push(i)
         }
+
         setXNeeded(temp)
     }
 
@@ -59,6 +74,18 @@ const InterpolasiLagrang = () => {
                         <button type="button" className="button-dark montserrat" id="calculate" onClick={ calculate }>Calculate</button>
                     </div>
                 </div>
+            </div>
+            <div className="card">
+                <div className="card__content">
+                    <p className="title montserrat">Hasil</p>
+                    { result.length < 1 ? (
+                        <div>
+
+                        </div>
+                    ) : (
+                        <InterpolasiLagrangStep xy={ xy } forx={ forX } result={ result }/>
+                    )}
+                </div>  
             </div>
             <style jsx>
                 {
@@ -104,6 +131,10 @@ const InterpolasiLagrang = () => {
                             width: 100px;
                             margin-left: 10px;
                             padding: 5px;
+                        }
+
+                        .title {
+                            font-size: 20px;
                         }
                     `
                 }
