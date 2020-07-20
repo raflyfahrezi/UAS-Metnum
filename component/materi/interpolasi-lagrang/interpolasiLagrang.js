@@ -1,13 +1,26 @@
 import React, { useEffect, useState } from 'react'
 
 import InputXY from '../inputXY/inputXY'
+import InterpolasiLagrangCalculate from './interpolasi-lagrang-calculate'
 
 const InterpolasiLagrang = () => {
     const [xNeeded, setXNeeded] = useState([1, 2, 3])
+    const [xy, setXY] = useState([])
 
     useEffect(() => {
+        InterpolasiLagrangCalculate(xy, 2)
+    }, [xy])
+
+    const calculate = () => {
+        let xytemp = []
+
+        for (let i = 1; i <= xNeeded.length; i++) {
+            xytemp.push(document.getElementById("x" + i).value)
+            xytemp.push(document.getElementById("y" + i).value)
+        }
         
-    }, [xNeeded])
+        setXY(xytemp)
+    }
 
     const updateX = event => {
         const temp = []
@@ -23,7 +36,7 @@ const InterpolasiLagrang = () => {
                 <div className="card__content">
                     <p className="title montserrat">Masukan x dan y</p>
                     <div className="card__select">
-                        <p className="montserrat">Jumlah x : </p>
+                        <p className="montserrat">Jumlah x dan y : </p>
                         <select name="totalX" id="totalX" className="select" onChange={ updateX }>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -35,11 +48,15 @@ const InterpolasiLagrang = () => {
                     </div>
                     <div className="card__input">
                         { xNeeded.map((item, index) => (
-                            <InputXY number={ "" + item }/>
+                            <InputXY number={ "" + item } key={ index }/>
                         )) }
                     </div>
+                    <div className="card__input">
+                        <p className="montserrat">Untuk x = </p>
+                        <input type="text" className="input_x" placeholder="cth: 2 3 4 8 9" autoComplete="off" id="inputX"></input>
+                    </div>
                     <div className="card__button">
-                        <button type="button" className="button-dark montserrat" id="calculate">Calculate</button>
+                        <button type="button" className="button-dark montserrat" id="calculate" onClick={ calculate }>Calculate</button>
                     </div>
                 </div>
             </div>
@@ -81,6 +98,12 @@ const InterpolasiLagrang = () => {
                         .select {
                             padding: 5px;
                             margin-left: 10px;
+                        }
+
+                        .input_x {
+                            width: 100px;
+                            margin-left: 10px;
+                            padding: 5px;
                         }
                     `
                 }
