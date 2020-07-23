@@ -83,7 +83,14 @@ const InterpolasiLagrang = () => {
 
                         </div>
                     ) : (
-                        <InterpolasiLagrangStep xy={ xy } forx={ forX } result={ result }/>
+                        <div>
+                            { forX.map((item, index) => (
+                                <div className="card__result" key={ index }>
+                                    <p className="montserrat">Untuk x = { forX[index] }</p>
+                                    <InterpolasiLagrangStep xy={ xy } forX={ forX[index] } result={ result }/>
+                                </div>
+                            )) }
+                        </div>
                     )}
                 </div>  
             </div>
@@ -120,6 +127,10 @@ const InterpolasiLagrang = () => {
                             align-items: center;
                             justify-content: center;
                             flex-wrap: wrap;
+                        }
+
+                        .card__result {
+                            padding: 20px 0;
                         }
 
                         .select {
