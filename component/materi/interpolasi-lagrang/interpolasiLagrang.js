@@ -17,6 +17,7 @@ const InterpolasiLagrang = () => {
             resultTemp.push(InterpolasiLagrangCalculate(xy, forX[i]))
         }
         
+        console.log(resultTemp)
         setResult(resultTemp)
     }, [xy])
 

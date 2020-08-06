@@ -47,7 +47,6 @@ const InterpolasiLagrangCalculate = (xyparams, xparams) => {
         }
 
         total = (total.toFixed(3)).toString()
-        console.log(total)
         return total
     }
 }
