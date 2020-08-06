@@ -35,7 +35,6 @@ const InterpolasiLagrangPerY = props => {
             setHitungBawah(result)
         }
 
-        console.log(x)
         hitungAtas(x, forx, y)
         hitungBawah(x, y)
     })
